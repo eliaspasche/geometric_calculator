@@ -10,6 +10,10 @@ const config: Config = {
   ],
   theme: {
     extend: {},
+
+    container: {
+      padding: "2rem",
+    },
   },
   darkMode: "class",
   plugins: [nextui()],

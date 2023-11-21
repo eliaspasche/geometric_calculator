@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
+import { NavigationHeader } from "./components/navigation";
 
 export const metadata: Metadata = {
   title: "Geometric Calculator",
@@ -16,7 +16,9 @@ export default function RootLayout({
   return (
     <html lang="en" className="light">
       <body>
-        <Providers>{children}</Providers>
+        <Providers>
+          <NavigationHeader>{children}</NavigationHeader>
+        </Providers>
       </body>
     </html>
   );
