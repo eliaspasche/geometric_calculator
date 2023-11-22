@@ -1,15 +1,30 @@
-class SolidFigure extends GeometricFigure {
-  surfaceArea: number;
-  volume: number;
+import { GeometricFigure } from "@/app/types/geometric_figure";
 
-  constructor(
-    name: string,
-    color: string,
-    surfaceArea: number,
-    volume: number
-  ) {
-    super(name, color);
-    this.surfaceArea = surfaceArea;
-    this.volume = volume;
+export class SolidFigure extends GeometricFigure {
+  private _surfaceArea: number = 0;
+  private _volume: number = 0;
+
+  get surfaceArea(): number {
+    return this._surfaceArea;
+  }
+
+  set surfaceArea(value: number) {
+    this._surfaceArea = value;
+  }
+
+  get volume(): number {
+    return this._volume;
+  }
+
+  set volume(value: number) {
+    this._volume = value;
+  }
+
+  calculateVolume(a: number, b: number, c: number): number {
+    return a * b * c;
+  }
+
+  calculateSurfaceArea(a: number, b: number, c: number): number {
+    return 2 * a * b + 2 * b * c + 2 * c * a;
   }
 }

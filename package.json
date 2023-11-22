@@ -10,10 +10,15 @@
   },
   "dependencies": {
     "@nextui-org/react": "^2.2.9",
+    "formik": "^2.4.5",
     "framer-motion": "^10.16.5",
+    "konva": "^9.2.3",
     "next": "14.0.3",
+    "prettier": "^3.1.0",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "react-konva": "^18.2.10",
+    "yup": "^1.3.2"
   },
   "devDependencies": {
     "@types/node": "^20",
