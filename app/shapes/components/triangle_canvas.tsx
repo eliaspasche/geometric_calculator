@@ -7,12 +7,7 @@ interface PropsType {
   color: string;
 }
 
-export const TriangleCanvas = ({
-  width,
-  height,
-  maxHeight,
-  color,
-}: PropsType) => {
+const TriangleCanvas = ({ width, height, maxHeight, color }: PropsType) => {
   const scale = 4;
 
   return (
@@ -29,3 +24,5 @@ export const TriangleCanvas = ({
     </Stage>
   );
 };
+
+export default TriangleCanvas;

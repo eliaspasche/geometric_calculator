@@ -7,12 +7,7 @@ interface PropsType {
   color: string;
 }
 
-export const EllipseCanvas = ({
-  width,
-  height,
-  maxHeight,
-  color,
-}: PropsType) => {
+const EllipseCanvas = ({ width, height, maxHeight, color }: PropsType) => {
   const scale = 2;
 
   return (
@@ -30,3 +25,5 @@ export const EllipseCanvas = ({
     </Stage>
   );
 };
+
+export default EllipseCanvas;

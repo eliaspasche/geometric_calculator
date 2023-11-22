@@ -7,11 +7,21 @@ import { useMemo } from "react";
 import { ValueTile } from "@/app/components/ValueTile";
 import { Justify } from "@/app/components/justify";
 import { Rectangle } from "@/app/types/shapes/rectangle";
-import { RectangleCanvas } from "@/app/shapes/components/rectangle_canvas";
 import { Ellipse } from "@/app/types/shapes/ellipse";
-import { EllipseCanvas } from "@/app/shapes/components/ellipse_canvas";
+import dynamic from "next/dynamic";
 import { RightTriangle } from "@/app/types/shapes/triangle";
-import { TriangleCanvas } from "@/app/shapes/components/triangle_canvas";
+
+const TriangleCanvas = dynamic(() => import("./triangle_canvas"), {
+  ssr: false,
+});
+
+const EllipseCanvas = dynamic(() => import("./ellipse_canvas"), {
+  ssr: false,
+});
+
+const RectangleCanvas = dynamic(() => import("./rectangle_canvas"), {
+  ssr: false,
+});
 
 export const ShapesPreview = () => {
   const formik = useFormikContext<ShapesFormType>();
