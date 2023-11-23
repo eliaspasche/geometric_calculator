@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Providers } from "./providers";
 import { NavigationHeader } from "./components/navigation";
+import { ApplicationFooter } from "@/app/components/footer";
 
 export const metadata: Metadata = {
   title: "Geometric Calculator",
@@ -17,7 +18,11 @@ export default function RootLayout({
     <html lang="en" className="light">
       <body>
         <Providers>
-          <NavigationHeader>{children}</NavigationHeader>
+          <div className="flex flex-col min-h-screen justify-between">
+            <NavigationHeader />
+            <div className="flex-grow">{children}</div>
+            <ApplicationFooter />
+          </div>
         </Providers>
       </body>
     </html>

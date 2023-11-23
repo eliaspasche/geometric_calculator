@@ -15,7 +15,7 @@ export interface ShapesFormType {
 }
 
 const initialValues: ShapesFormType = {
-  color: "#1b2f33",
+  color: "#245058",
   name: "",
   shape: "",
   a: 50,

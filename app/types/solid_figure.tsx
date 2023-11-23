@@ -1,8 +1,8 @@
 import { GeometricFigure } from "@/app/types/geometric_figure";
 
 export class SolidFigure extends GeometricFigure {
-  private _surfaceArea: number = 0;
-  private _volume: number = 0;
+  protected _surfaceArea: number = 0;
+  protected _volume: number = 0;
 
   get surfaceArea(): number {
     return this._surfaceArea;

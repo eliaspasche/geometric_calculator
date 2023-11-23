@@ -7,9 +7,12 @@ interface PropsType {
 export const Header = ({ title, children }: PropsWithChildren<PropsType>) => {
   return (
     <>
-      {/*<header className="px-8 py-5 text-xl border-b" color="content2">*/}
-      {/*  {title}*/}
-      {/*</header>*/}
+      <header
+        className="container max-w-screen-xl mx-auto py-8"
+        color="content2"
+      >
+        <p className="text-2xl font-bold ml-4">{title}</p>
+      </header>
       <div className="container max-w-screen-xl mx-auto py-8">{children}</div>
     </>
   );

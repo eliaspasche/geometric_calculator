@@ -11,10 +11,10 @@ import {
   NavbarMenuToggle,
 } from "@nextui-org/react";
 import { usePathname } from "next/navigation";
-import { PropsWithChildren, useState } from "react";
+import { useState } from "react";
 import { ApplicationLogo } from "./logo";
 
-export const NavigationHeader = ({ children }: PropsWithChildren) => {
+export const NavigationHeader = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
 
@@ -24,51 +24,44 @@ export const NavigationHeader = ({ children }: PropsWithChildren) => {
   ];
 
   return (
-    <>
-      <Navbar
-        onMenuOpenChange={setIsMenuOpen}
-        className="px-8 py-5 border-b w-full"
-      >
-        <NavbarContent>
-          <NavbarMenuToggle className="sm:hidden" />
-          <NavbarBrand>
-            <ApplicationLogo />
-          </NavbarBrand>
-        </NavbarContent>
+    <Navbar
+      onMenuOpenChange={setIsMenuOpen}
+      className="px-8 py-5 border-b w-full"
+    >
+      <NavbarContent>
+        <NavbarMenuToggle className="sm:hidden" />
+        <NavbarBrand>
+          <ApplicationLogo />
+        </NavbarBrand>
+      </NavbarContent>
 
-        <NavbarContent className="hidden sm:flex gap-12">
-          {menuItems.map((item) => (
-            <NavbarItem
-              key={item.key}
-              isActive={pathname.startsWith(item.link)}
+      <NavbarContent className="hidden sm:flex gap-12">
+        {menuItems.map((item) => (
+          <NavbarItem key={item.key} isActive={pathname.startsWith(item.link)}>
+            <Link color="foreground" href={item.link} className="text-lg">
+              {item.label}
+            </Link>
+          </NavbarItem>
+        ))}
+      </NavbarContent>
+
+      <NavbarMenu>
+        {menuItems.map((item, index) => (
+          <NavbarMenuItem
+            key={item.key}
+            isActive={pathname.startsWith(item.link)}
+          >
+            <Link
+              className="w-full"
+              color="foreground"
+              href={item.link}
+              size="lg"
             >
-              <Link color="foreground" href={item.link} className="text-lg">
-                {item.label}
-              </Link>
-            </NavbarItem>
-          ))}
-        </NavbarContent>
-
-        <NavbarMenu>
-          {menuItems.map((item, index) => (
-            <NavbarMenuItem
-              key={item.key}
-              isActive={pathname.startsWith(item.link)}
-            >
-              <Link
-                className="w-full"
-                color="foreground"
-                href={item.link}
-                size="lg"
-              >
-                {item.label}
-              </Link>
-            </NavbarMenuItem>
-          ))}
-        </NavbarMenu>
-      </Navbar>
-
-      {children}
-    </>
+              {item.label}
+            </Link>
+          </NavbarMenuItem>
+        ))}
+      </NavbarMenu>
+    </Navbar>
   );
 };

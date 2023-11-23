@@ -1,7 +1,6 @@
 export class GeometricFigure {
-  protected _label: string = "";
-  private _name: string = "";
-  private _color: string = "";
+  protected _name: string = "";
+  protected _color: string = "";
 
   get name(): string {
     return this._name;
