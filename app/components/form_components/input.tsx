@@ -1,11 +1,10 @@
 "use client";
-import { Input, InputProps } from "@nextui-org/input";
 import { getIn, useFormikContext } from "formik";
-import { PropsWithChildren } from "react";
+import { Input, InputProps } from "@nextui-org/input";
 
 type FormikInputProps = InputProps & { propertyKey: string };
 
-export const FormikInput = (props: PropsWithChildren<FormikInputProps>) => {
+export const FormikInput = (props: FormikInputProps) => {
   const formik = useFormikContext();
   const value = getIn(formik.values, props.propertyKey);
 
@@ -14,7 +13,6 @@ export const FormikInput = (props: PropsWithChildren<FormikInputProps>) => {
   return (
     <Input
       id={props.propertyKey}
-      {...props}
       value={value}
       onChange={(event) => {
         formik.setFieldValue(props.propertyKey, event.target.value);
@@ -25,6 +23,9 @@ export const FormikInput = (props: PropsWithChildren<FormikInputProps>) => {
       errorMessage={errorMessage}
       labelPlacement="outside"
       variant="bordered"
+      type={props.type}
+      label={props.label}
+      placeholder={props.placeholder}
     />
   );
 };
