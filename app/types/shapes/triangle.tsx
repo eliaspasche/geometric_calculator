@@ -3,7 +3,7 @@ import React from "react";
 import dynamic from "next/dynamic";
 
 const TriangleCanvas = dynamic(
-  () => import("@/app/shapes/components/triangle_canvas"),
+  () => import("@/app/shapes/components/canvas/triangle_canvas"),
   {
     ssr: false,
   },
@@ -19,14 +19,7 @@ export class RightTriangle extends Shape {
     );
   }
 
-  previewShape(maxHeight: number): React.ReactNode {
-    return (
-      <TriangleCanvas
-        width={this.a}
-        height={this.b}
-        maxHeight={maxHeight}
-        color={this.color}
-      />
-    );
+  preview(): React.ReactNode {
+    return <TriangleCanvas width={this.a} height={this.b} color={this.color} />;
   }
 }

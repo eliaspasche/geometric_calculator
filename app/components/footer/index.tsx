@@ -1,3 +1,5 @@
+import { PATH_ABOUT } from "@/app/routes";
+
 export const ApplicationFooter = () => {
   return (
     <footer className="bg-primary shadow bottom-0">
@@ -7,7 +9,7 @@ export const ApplicationFooter = () => {
         </span>
         <ul className="flex flex-wrap items-center mt-3 text-sm font-medium text-white sm:mt-0">
           <li>
-            <a href="/about" className="hover:underline me-4 md:me-6 ">
+            <a href={PATH_ABOUT} className="hover:underline me-4 md:me-6 ">
               About
             </a>
           </li>

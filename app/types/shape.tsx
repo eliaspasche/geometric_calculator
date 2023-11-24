@@ -1,5 +1,4 @@
 import { GeometricFigure } from "@/app/types/geometric_figure";
-import React, { ReactNode } from "react";
 
 export class Shape extends GeometricFigure {
   private _a: number = 0;
@@ -27,9 +26,5 @@ export class Shape extends GeometricFigure {
 
   get perimeter(): number {
     return 0;
-  }
-
-  public previewShape(maxHeight: number): ReactNode {
-    return <></>;
   }
 }

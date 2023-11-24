@@ -6,6 +6,7 @@ import { Shape } from "@/app/types/shape";
 import { useMemo } from "react";
 import { ValueTile } from "@/app/components/ValueTile";
 import { Justify } from "@/app/components/justify";
+import { Canvas } from "@react-three/fiber";
 
 export const ShapesPreview = () => {
   const formik = useFormikContext<ShapesFormType>();
@@ -29,7 +30,9 @@ export const ShapesPreview = () => {
   }, [selectedShape, formik.values]);
 
   if (!shape) {
-    return <div className="w-full text-center">Please select a shape.</div>;
+    return (
+      <div className="w-full text-center font-light">No Shape selected.</div>
+    );
   }
 
   return (
@@ -37,7 +40,9 @@ export const ShapesPreview = () => {
       <p className="text-medium font-bold">{shape.name}</p>
       {shape.a && shape.b && (
         <>
-          <div className="my-4">{shape.previewShape(400)}</div>
+          <div className="my-4 w-full aspect-square bg-gray-100">
+            <Canvas>{shape.preview()}</Canvas>
+          </div>
           <div className="grid grid-cols-2 w-full ">
             <Justify>
               <ValueTile label={"Area"} value={shape.area.toFixed(2)} />

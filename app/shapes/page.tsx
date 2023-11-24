@@ -18,12 +18,13 @@ const initialValues: ShapesFormType = {
   color: "#245058",
   name: "",
   shape: "",
-  a: 50,
-  b: 50,
+  a: 5,
+  b: 5,
 };
 
 const validationSchema = object({
   a: number().nullable().positive("Value has to be positive."),
+  b: number().nullable().positive("Value has to be positive."),
 });
 
 export default function Shapes() {

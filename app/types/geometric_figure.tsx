@@ -1,3 +1,5 @@
+import React, { ReactNode } from "react";
+
 export class GeometricFigure {
   protected _name: string = "";
   protected _color: string = "";
@@ -16,5 +18,9 @@ export class GeometricFigure {
 
   set color(value: string) {
     this._color = value;
+  }
+
+  public preview(): ReactNode {
+    return <></>;
   }
 }

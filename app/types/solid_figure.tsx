@@ -1,30 +1,39 @@
 import { GeometricFigure } from "@/app/types/geometric_figure";
 
 export class SolidFigure extends GeometricFigure {
-  protected _surfaceArea: number = 0;
-  protected _volume: number = 0;
+  private _a: number = 0;
+  private _b: number = 0;
+  private _c: number = 0;
 
-  get surfaceArea(): number {
-    return this._surfaceArea;
+  get a(): number {
+    return this._a;
   }
 
-  set surfaceArea(value: number) {
-    this._surfaceArea = value;
+  set a(value: number) {
+    this._a = value;
+  }
+
+  get b(): number {
+    return this._b;
+  }
+
+  set b(value: number) {
+    this._b = value;
+  }
+
+  get c(): number {
+    return this._c;
+  }
+
+  set c(value: number) {
+    this._c = value;
+  }
+
+  get surfaceArea(): number {
+    return 0;
   }
 
   get volume(): number {
-    return this._volume;
-  }
-
-  set volume(value: number) {
-    this._volume = value;
-  }
-
-  calculateVolume(a: number, b: number, c: number): number {
-    return a * b * c;
-  }
-
-  calculateSurfaceArea(a: number, b: number, c: number): number {
-    return 2 * a * b + 2 * b * c + 2 * c * a;
+    return 0;
   }
 }
