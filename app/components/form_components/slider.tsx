@@ -12,7 +12,6 @@ export const FormikSlider = (props: PropsWithChildren<SliderInputProps>) => {
   return (
     <Slider
       id={props.propertyKey}
-      {...props}
       value={value}
       onChange={(value) => {
         formik.setFieldValue(props.propertyKey, value);
@@ -20,7 +19,10 @@ export const FormikSlider = (props: PropsWithChildren<SliderInputProps>) => {
       }}
       onBlur={formik.handleBlur}
       color={"primary"}
-      variant="bordered"
+      label={props.label}
+      minValue={props.minValue}
+      maxValue={props.maxValue}
+      step={props.step}
     />
   );
 };
