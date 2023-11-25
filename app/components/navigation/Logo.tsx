@@ -16,7 +16,7 @@ export const ApplicationLogo = () => {
   }, []);
 
   const height = 50;
-  const className = "px-4";
+  const className = "mx-4";
 
   if (!mounted) return null;
 

@@ -44,7 +44,7 @@ export const NavigationHeader = () => {
         </NavbarItem>
       </NavbarContent>
 
-      <NavbarMenu className="pt-8">
+      <NavbarMenu className="pt-2">
         {navLinks.map((item) => (
           <NavbarMenuItem
             className="pt-4"

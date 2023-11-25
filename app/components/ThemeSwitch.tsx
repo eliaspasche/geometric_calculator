@@ -31,7 +31,7 @@ export function ThemeSwitch() {
         onClick={() =>
           resolvedTheme === "dark" ? setTheme("light") : setTheme("dark")
         }
-        variant={"flat"}
+        variant={"light"}
       >
         <Image
           alt="Icon Theme Mode"

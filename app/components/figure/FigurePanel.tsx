@@ -7,7 +7,7 @@ export const GeometricFigureDisplay = ({ children }: PropsWithChildren) => {
 export const GeometricFigureParams = ({ children }: PropsWithChildren) => {
   return (
     <div className="md:px-8">
-      <p className="text-xl font-bold mb-4">Parameters</p>
+      <p className="text-xl font-bold mb-4 hidden md:visible">Parameters</p>
       {children}
     </div>
   );
