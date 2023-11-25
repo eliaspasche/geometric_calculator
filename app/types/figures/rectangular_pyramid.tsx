@@ -1,5 +1,6 @@
 import { SolidFigure } from "@/app/types/solid_figure";
 import React from "react";
+import PyramidCanvas from "@/app/figures/components/canvas/pyramid_canvas";
 
 export class RectangularPyramid extends SolidFigure {
   get surfaceArea(): number {
@@ -19,6 +20,13 @@ export class RectangularPyramid extends SolidFigure {
   }
 
   preview(): React.ReactNode {
-    return <></>;
+    return (
+      <PyramidCanvas
+        length={this.a}
+        width={this.b}
+        height={this.c}
+        color={this.color}
+      />
+    );
   }
 }

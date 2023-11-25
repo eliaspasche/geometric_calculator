@@ -1,5 +1,6 @@
 import { SolidFigure } from "@/app/types/solid_figure";
 import React from "react";
+import EllipsoidCanvas from "@/app/figures/components/canvas/ellipsoid_canvas";
 
 export class Ellipsoid extends SolidFigure {
   get surfaceArea(): number {
@@ -21,6 +22,13 @@ export class Ellipsoid extends SolidFigure {
   }
 
   preview(): React.ReactNode {
-    return <></>;
+    return (
+      <EllipsoidCanvas
+        length={this.a}
+        width={this.b}
+        height={this.c}
+        color={this.color}
+      />
+    );
   }
 }

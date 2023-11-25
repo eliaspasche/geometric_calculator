@@ -19,7 +19,7 @@ export const NavigationHeader = () => {
   const navLinks = useNavLinks();
 
   return (
-    <Navbar className="px-8 py-5 border-b w-full">
+    <Navbar className="px-2 py-1 md:py-4 md:border-b w-full">
       <NavbarContent>
         <NavbarMenuToggle className="sm:hidden" />
         <NavbarBrand>

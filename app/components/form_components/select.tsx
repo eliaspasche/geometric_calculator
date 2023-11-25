@@ -1,9 +1,12 @@
 "use client";
 import { getIn, useFormikContext } from "formik";
-import { PropsWithChildren } from "react";
+import { ChangeEvent, PropsWithChildren } from "react";
 import { Select, SelectProps } from "@nextui-org/react";
 
-type FormikSelectProps = SelectProps & { propertyKey: string };
+type FormikSelectProps = SelectProps & {
+  propertyKey: string;
+  onChange?: (event: ChangeEvent<HTMLSelectElement>) => void;
+};
 
 export const FormikSelect = (props: PropsWithChildren<FormikSelectProps>) => {
   const formik = useFormikContext();
@@ -17,6 +20,8 @@ export const FormikSelect = (props: PropsWithChildren<FormikSelectProps>) => {
       {...props}
       value={value}
       onChange={(event) => {
+        props.onChange?.(event);
+
         formik.setFieldValue(props.propertyKey, event.target.value);
         formik.setFieldTouched(props.propertyKey);
       }}
@@ -24,7 +29,7 @@ export const FormikSelect = (props: PropsWithChildren<FormikSelectProps>) => {
       color={errorMessage && "danger"}
       errorMessage={errorMessage}
       labelPlacement="outside"
-      variant="bordered"
+      variant="flat"
     >
       {props.children}
     </Select>

@@ -1,12 +1,11 @@
 "use client";
 import { useFormikContext } from "formik";
 import { useMemo } from "react";
-import { ValueTile } from "@/app/components/ValueTile";
-import { Justify } from "@/app/components/justify";
+import { ValueTile } from "@/app/components/value_tile";
 import { AVAILABLE_FIGURES } from "@/app/figures/components/figure_form";
 import { SolidFigure } from "@/app/types/solid_figure";
 import { FiguresFormType } from "@/app/figures/page";
-import { Canvas } from "@react-three/fiber";
+import { PreviewPanel } from "@/app/components/figure/preview_panel";
 
 export const FigurePreview = () => {
   const formik = useFormikContext<FiguresFormType>();
@@ -39,26 +38,27 @@ export const FigurePreview = () => {
   }
 
   return (
-    <div className="flex flex-col justify-center items-center">
-      <p className="text-medium font-bold">{figure.name}</p>
+    <PreviewPanel>
+      <PreviewPanel.Name>
+        <ValueTile label={"Name"} value={figure.name || "-"} textEnd />
+      </PreviewPanel.Name>
       {figure.a && figure.b && (
-        <>
-          <div className="my-4 w-full aspect-square bg-gray-100">
-            <Canvas>{figure.preview()}</Canvas>
-          </div>
-          <div className="grid grid-cols-2 w-full ">
-            <Justify>
-              <ValueTile label={"Volume"} value={figure.volume.toFixed(2)} />
-            </Justify>
-            <Justify>
-              <ValueTile
-                label={"Surface Area"}
-                value={figure.surfaceArea.toFixed(2)}
-              />
-            </Justify>
-          </div>
-        </>
+        <PreviewPanel.Content>
+          <PreviewPanel.Canvas>{figure.preview()}</PreviewPanel.Canvas>
+          <PreviewPanel.Calculation>
+            <ValueTile
+              label={"Volume"}
+              value={figure.volume.toFixed(2)}
+              justify
+            />
+            <ValueTile
+              label={"Surface Area"}
+              value={figure.surfaceArea.toFixed(2)}
+              justify
+            />
+          </PreviewPanel.Calculation>
+        </PreviewPanel.Content>
       )}
-    </div>
+    </PreviewPanel>
   );
 };

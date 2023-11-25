@@ -22,10 +22,11 @@ export const FormikInput = (props: FormikInputProps) => {
       color={errorMessage && "danger"}
       errorMessage={errorMessage}
       labelPlacement="outside"
-      variant="bordered"
+      variant="flat"
       type={props.type}
       label={props.label}
       placeholder={props.placeholder}
+      maxLength={props.maxLength}
     />
   );
 };

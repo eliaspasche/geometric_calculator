@@ -1,6 +1,6 @@
 "use client";
 
-import { Form } from "formik";
+import { Form, useFormikContext } from "formik";
 import { SelectItem } from "@nextui-org/select";
 import { FormikInput } from "@/app/components/form_components/input";
 import React from "react";
@@ -10,6 +10,8 @@ import { SolidFigure } from "@/app/types/solid_figure";
 import { Ellipsoid } from "@/app/types/figures/ellipsoid";
 import { RectangularCuboid } from "@/app/types/figures/rectangular_cuboid";
 import { RectangularPyramid } from "@/app/types/figures/rectangular_pyramid";
+import { FiguresFormType } from "@/app/figures/page";
+import { FormPanel } from "@/app/components/figure/form_panel";
 
 export const AVAILABLE_FIGURES: {
   figure: SolidFigure;
@@ -29,28 +31,39 @@ export const AVAILABLE_FIGURES: {
   },
 ];
 export const FigureForm = () => {
+  const formik = useFormikContext<FiguresFormType>();
+
   return (
-    <div>
-      <Form>
-        <div className="flex w-full flex-wrap gap-4">
-          <FormikSelect
-            propertyKey="figure"
-            label="Solid Figure"
-            placeholder="Please select a Solid Figure"
-          >
-            {AVAILABLE_FIGURES.map((shape) => (
-              <SelectItem key={shape.key} value={shape.key}>
-                {shape.label}
-              </SelectItem>
-            ))}
-          </FormikSelect>
+    <Form>
+      <FormPanel>
+        <FormikSelect
+          propertyKey="figure"
+          label="Solid Figure"
+          placeholder="Please select a Solid Figure"
+          onChange={() => formik.resetForm()}
+        >
+          {AVAILABLE_FIGURES.map((shape) => (
+            <SelectItem key={shape.key} value={shape.key}>
+              {shape.label}
+            </SelectItem>
+          ))}
+        </FormikSelect>
+        <FormPanel.Row>
           <FormikInput
             propertyKey="name"
             type="text"
             label="Name"
             placeholder="Enter a name"
+            maxLength={40}
           />
-          <FormikInput propertyKey="color" type="color" label="Color" />
+          <FormikInput
+            propertyKey="color"
+            type="color"
+            label="Color"
+            maxLength={40}
+          />
+        </FormPanel.Row>
+        <FormPanel.Row>
           <FormikSlider
             propertyKey="a"
             label="Side Length (a)"
@@ -63,14 +76,16 @@ export const FigureForm = () => {
             minValue={1}
             maxValue={10}
           />
+        </FormPanel.Row>
+        <FormPanel.Row>
           <FormikSlider
             propertyKey="c"
             label="Side Length (c)"
             minValue={1}
             maxValue={10}
           />
-        </div>
-      </Form>
-    </div>
+        </FormPanel.Row>
+      </FormPanel>
+    </Form>
   );
 };

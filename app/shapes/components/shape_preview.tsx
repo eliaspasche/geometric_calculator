@@ -4,9 +4,8 @@ import { ShapesFormType } from "@/app/shapes/page";
 import { AVAILABLE_SHAPES } from "@/app/shapes/components/shape_form";
 import { Shape } from "@/app/types/shape";
 import { useMemo } from "react";
-import { ValueTile } from "@/app/components/ValueTile";
-import { Justify } from "@/app/components/justify";
-import { Canvas } from "@react-three/fiber";
+import { ValueTile } from "@/app/components/value_tile";
+import { PreviewPanel } from "@/app/components/figure/preview_panel";
 
 export const ShapesPreview = () => {
   const formik = useFormikContext<ShapesFormType>();
@@ -36,26 +35,23 @@ export const ShapesPreview = () => {
   }
 
   return (
-    <div className="flex flex-col justify-center items-center">
-      <p className="text-medium font-bold">{shape.name}</p>
+    <PreviewPanel>
+      <PreviewPanel.Name>
+        <ValueTile label={"Name"} value={shape.name || "-"} textEnd />
+      </PreviewPanel.Name>
       {shape.a && shape.b && (
-        <>
-          <div className="my-4 w-full aspect-square bg-gray-100">
-            <Canvas>{shape.preview()}</Canvas>
-          </div>
-          <div className="grid grid-cols-2 w-full ">
-            <Justify>
-              <ValueTile label={"Area"} value={shape.area.toFixed(2)} />
-            </Justify>
-            <Justify>
-              <ValueTile
-                label={"Perimeter"}
-                value={shape.perimeter.toFixed(2)}
-              />
-            </Justify>
-          </div>
-        </>
+        <PreviewPanel.Content>
+          <PreviewPanel.Canvas>{shape.preview()}</PreviewPanel.Canvas>
+          <PreviewPanel.Calculation>
+            <ValueTile label={"Area"} value={shape.area.toFixed(2)} justify />
+            <ValueTile
+              label={"Perimeter"}
+              value={shape.perimeter.toFixed(2)}
+              justify
+            />
+          </PreviewPanel.Calculation>
+        </PreviewPanel.Content>
       )}
-    </div>
+    </PreviewPanel>
   );
 };

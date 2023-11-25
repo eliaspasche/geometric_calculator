@@ -5,6 +5,11 @@ import { Formik } from "formik";
 import React from "react";
 import { FigureForm } from "@/app/figures/components/figure_form";
 import { FigurePreview } from "@/app/figures/components/figure_preview";
+import {
+  GeometricFigureDisplay,
+  GeometricFigureParams,
+  GeometricFigurePreview,
+} from "@/app/components/figure/figure_panel";
 
 export interface FiguresFormType {
   name: string;
@@ -40,16 +45,15 @@ export default function Figures() {
       validationSchema={validationSchema}
       onSubmit={() => {}}
     >
-      <div className="w-full grid md:grid-cols-2 border-x-1">
-        <div className="md:border-r-1 px-8">
-          <p className="text-xl font-bold mb-4">Parameters</p>
+      <GeometricFigureDisplay>
+        <GeometricFigureParams>
           <FigureForm />
-        </div>
-        <div className="px-8">
-          <p className="text-xl font-bold mb-4">Preview</p>
+        </GeometricFigureParams>
+
+        <GeometricFigurePreview>
           <FigurePreview />
-        </div>
-      </div>
+        </GeometricFigurePreview>
+      </GeometricFigureDisplay>
     </Formik>
   );
 }

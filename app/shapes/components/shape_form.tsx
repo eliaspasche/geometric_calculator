@@ -1,6 +1,6 @@
 "use client";
 
-import { Form } from "formik";
+import { Form, useFormikContext } from "formik";
 import { SelectItem } from "@nextui-org/select";
 import { FormikInput } from "@/app/components/form_components/input";
 import React from "react";
@@ -10,11 +10,13 @@ import { Ellipse } from "@/app/types/shapes/ellipse";
 import { RightTriangle } from "@/app/types/shapes/triangle";
 import { Shape } from "@/app/types/shape";
 import { FormikSlider } from "@/app/components/form_components/slider";
+import { ShapesFormType } from "@/app/shapes/page";
+import { FormPanel } from "@/app/components/figure/form_panel";
 
 export const AVAILABLE_SHAPES: { shape: Shape; key: string; label: string }[] =
   [
-    { shape: Rectangle.prototype, key: "rectangle", label: "Rectangle" },
     { shape: Ellipse.prototype, key: "ellipse", label: "Ellipse" },
+    { shape: Rectangle.prototype, key: "rectangle", label: "Rectangle" },
     {
       shape: RightTriangle.prototype,
       key: "triangle",
@@ -22,28 +24,38 @@ export const AVAILABLE_SHAPES: { shape: Shape; key: string; label: string }[] =
     },
   ];
 export const ShapesForm = () => {
+  const formik = useFormikContext<ShapesFormType>();
   return (
-    <div>
-      <Form>
-        <div className="flex w-full flex-wrap gap-4">
-          <FormikSelect
-            propertyKey="shape"
-            label="Shape"
-            placeholder="Please select a shape"
-          >
-            {AVAILABLE_SHAPES.map((shape) => (
-              <SelectItem key={shape.key} value={shape.key}>
-                {shape.label}
-              </SelectItem>
-            ))}
-          </FormikSelect>
+    <Form>
+      <FormPanel>
+        <FormikSelect
+          propertyKey="shape"
+          label="Shape"
+          placeholder="Please select a shape"
+          onChange={() => formik.resetForm()}
+        >
+          {AVAILABLE_SHAPES.map((shape) => (
+            <SelectItem key={shape.key} value={shape.key}>
+              {shape.label}
+            </SelectItem>
+          ))}
+        </FormikSelect>
+        <FormPanel.Row>
           <FormikInput
             propertyKey="name"
             type="text"
             label="Name"
             placeholder="Enter a name"
+            maxLength={40}
           />
-          <FormikInput propertyKey="color" type="color" label="Color" />
+          <FormikInput
+            propertyKey="color"
+            type="color"
+            label="Color"
+            maxLength={40}
+          />
+        </FormPanel.Row>
+        <FormPanel.Row>
           <FormikSlider
             propertyKey="a"
             label="Side Length (a)"
@@ -56,8 +68,8 @@ export const ShapesForm = () => {
             minValue={1}
             maxValue={10}
           />
-        </div>
-      </Form>
-    </div>
+        </FormPanel.Row>
+      </FormPanel>
+    </Form>
   );
 };

@@ -5,6 +5,11 @@ import { ShapesForm } from "@/app/shapes/components/shape_form";
 import { Formik } from "formik";
 import { number, object } from "yup";
 import { ShapesPreview } from "@/app/shapes/components/shape_preview";
+import {
+  GeometricFigureDisplay,
+  GeometricFigureParams,
+  GeometricFigurePreview,
+} from "@/app/components/figure/figure_panel";
 
 export interface ShapesFormType {
   name: string;
@@ -37,16 +42,15 @@ export default function Shapes() {
       validationSchema={validationSchema}
       onSubmit={() => {}}
     >
-      <div className="w-full grid md:grid-cols-2 border-x-1">
-        <div className="md:border-r-1 px-8">
-          <p className="text-xl font-bold mb-4">Parameters</p>
+      <GeometricFigureDisplay>
+        <GeometricFigureParams>
           <ShapesForm />
-        </div>
-        <div className="px-8">
-          <p className="text-xl font-bold mb-4">Preview</p>
+        </GeometricFigureParams>
+
+        <GeometricFigurePreview>
           <ShapesPreview />
-        </div>
-      </div>
+        </GeometricFigurePreview>
+      </GeometricFigureDisplay>
     </Formik>
   );
 }

@@ -1,6 +1,6 @@
 export const PATH_SHAPES = "/shapes";
 export const PATH_FIGURES = "/figures";
-export const PATH_ABOUT = "/about";
+export const PATH_IMPRINT = "/imprint";
 
 export const useNavLinks = () => {
   return [
