@@ -1,15 +1,15 @@
 "use client";
 
 import React from "react";
-import { ShapesForm } from "@/app/shapes/components/shape_form";
+import { ShapesForm } from "@/app/shapes/components/ShapeForm";
 import { Formik } from "formik";
 import { number, object } from "yup";
-import { ShapesPreview } from "@/app/shapes/components/shape_preview";
+import { ShapesPreview } from "@/app/shapes/components/ShapePreview";
 import {
   GeometricFigureDisplay,
   GeometricFigureParams,
   GeometricFigurePreview,
-} from "@/app/components/figure/figure_panel";
+} from "@/app/components/figure/FigurePanel";
 
 export interface ShapesFormType {
   name: string;

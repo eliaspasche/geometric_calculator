@@ -1,9 +1,9 @@
-import { Shape } from "@/app/types/shape";
+import { Shape } from "@/app/types/Shape";
 import React from "react";
 import dynamic from "next/dynamic";
 
 const TriangleCanvas = dynamic(
-  () => import("@/app/shapes/components/canvas/triangle_canvas"),
+  () => import("@/app/shapes/components/canvas/TriangleCanvas"),
   {
     ssr: false,
   },

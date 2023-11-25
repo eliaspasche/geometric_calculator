@@ -1,9 +1,9 @@
-import { Shape } from "@/app/types/shape";
+import { Shape } from "@/app/types/Shape";
 import React from "react";
 import dynamic from "next/dynamic";
 
 const EllipseCanvas = dynamic(
-  () => import("@/app/shapes/components/canvas/ellipse_canvas"),
+  () => import("@/app/shapes/components/canvas/EllipseCanvas"),
   {
     ssr: false,
   },

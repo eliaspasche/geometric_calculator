@@ -2,7 +2,7 @@ import { useFrame } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import { Mesh } from "three";
 import { useRef } from "react";
-import { Canvas3DProps } from "@/app/types/canvas";
+import { Canvas3DProps } from "@/app/types/Canvas";
 
 const CuboidCanvas = ({ length, width, height, color }: Canvas3DProps) => {
   const scale = 0.4;

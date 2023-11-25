@@ -1,5 +1,6 @@
 import React, { PropsWithChildren } from "react";
 import { Canvas } from "@react-three/fiber";
+import { useTheme } from "next-themes";
 
 export const PreviewPanel = ({ children }: PropsWithChildren) => {
   return <div>{children}</div>;
@@ -21,8 +22,13 @@ const Content = ({ children }: PropsWithChildren) => {
 };
 
 const CanvasPanel = ({ children }: PropsWithChildren) => {
+  const theme = useTheme();
   return (
-    <div className="my-4 w-full aspect-square bg-gray-100">
+    <div
+      className={`my-4 w-full aspect-square ${
+        theme.resolvedTheme === "dark" ? "bg-gray-950" : "bg-gray-100"
+      }`}
+    >
       <Canvas>{children}</Canvas>
     </div>
   );

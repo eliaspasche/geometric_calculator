@@ -1,4 +1,4 @@
-import { Justify } from "@/app/components/justify";
+import { Justify } from "@/app/components/layout/Justify";
 
 interface PropsType {
   label: string;

@@ -1,4 +1,4 @@
-import { Canvas2DProps } from "@/app/types/canvas";
+import { Canvas2DProps } from "@/app/types/Canvas";
 
 const RectangleCanvas = ({ width, height, color }: Canvas2DProps) => {
   return (

@@ -1,4 +1,4 @@
-import { GeometricFigure } from "@/app/types/geometric_figure";
+import { GeometricFigure } from "@/app/types/GeometricFigure";
 
 export class Shape extends GeometricFigure {
   private _a: number = 0;

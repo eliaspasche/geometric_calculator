@@ -1,4 +1,4 @@
-import { Canvas2DProps } from "@/app/types/canvas";
+import { Canvas2DProps } from "@/app/types/Canvas";
 import { useMemo } from "react";
 import { Shape } from "three";
 

@@ -3,13 +3,13 @@
 import { number, object } from "yup";
 import { Formik } from "formik";
 import React from "react";
-import { FigureForm } from "@/app/figures/components/figure_form";
-import { FigurePreview } from "@/app/figures/components/figure_preview";
+import { FigureForm } from "@/app/figures/components/FigureForm";
+import { FigurePreview } from "@/app/figures/components/FigurePreview";
 import {
   GeometricFigureDisplay,
   GeometricFigureParams,
   GeometricFigurePreview,
-} from "@/app/components/figure/figure_panel";
+} from "@/app/components/figure/FigurePanel";
 
 export interface FiguresFormType {
   name: string;

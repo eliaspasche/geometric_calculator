@@ -1,6 +1,6 @@
-import { SolidFigure } from "@/app/types/solid_figure";
+import { SolidFigure } from "@/app/types/SolidFigure";
 import React from "react";
-import CuboidCanvas from "@/app/figures/components/canvas/cuboid_canvas";
+import CuboidCanvas from "@/app/figures/components/canvas/CuboidCanvas";
 
 export class RectangularCuboid extends SolidFigure {
   get surfaceArea(): number {

@@ -1,4 +1,4 @@
-import { Canvas2DProps } from "@/app/types/canvas";
+import { Canvas2DProps } from "@/app/types/Canvas";
 
 const EllipseCanvas = ({ width, height, color }: Canvas2DProps) => {
   const scale = 0.35;

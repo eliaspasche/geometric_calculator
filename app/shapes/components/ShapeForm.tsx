@@ -2,16 +2,16 @@
 
 import { Form, useFormikContext } from "formik";
 import { SelectItem } from "@nextui-org/select";
-import { FormikInput } from "@/app/components/form_components/input";
+import { FormikInput } from "@/app/components/form_components/Input";
 import React from "react";
-import { FormikSelect } from "@/app/components/form_components/select";
-import { Rectangle } from "@/app/types/shapes/rectangle";
-import { Ellipse } from "@/app/types/shapes/ellipse";
-import { RightTriangle } from "@/app/types/shapes/triangle";
-import { Shape } from "@/app/types/shape";
-import { FormikSlider } from "@/app/components/form_components/slider";
+import { FormikSelect } from "@/app/components/form_components/Select";
+import { Rectangle } from "@/app/types/shapes/Rectangle";
+import { Ellipse } from "@/app/types/shapes/Ellipse";
+import { RightTriangle } from "@/app/types/shapes/Triangle";
+import { Shape } from "@/app/types/Shape";
+import { FormikSlider } from "@/app/components/form_components/Slider";
 import { ShapesFormType } from "@/app/shapes/page";
-import { FormPanel } from "@/app/components/figure/form_panel";
+import { FormPanel } from "@/app/components/figure/FormPanel";
 
 export const AVAILABLE_SHAPES: { shape: Shape; key: string; label: string }[] =
   [

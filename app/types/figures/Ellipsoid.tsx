@@ -1,6 +1,6 @@
-import { SolidFigure } from "@/app/types/solid_figure";
+import { SolidFigure } from "@/app/types/SolidFigure";
 import React from "react";
-import EllipsoidCanvas from "@/app/figures/components/canvas/ellipsoid_canvas";
+import EllipsoidCanvas from "@/app/figures/components/canvas/EllipsoidCanvas";
 
 export class Ellipsoid extends SolidFigure {
   get surfaceArea(): number {

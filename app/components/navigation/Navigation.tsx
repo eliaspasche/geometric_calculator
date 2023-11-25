@@ -11,8 +11,9 @@ import {
   NavbarMenuToggle,
 } from "@nextui-org/react";
 import { usePathname } from "next/navigation";
-import { ApplicationLogo } from "./logo";
+import { ApplicationLogo } from "./Logo";
 import { useNavLinks } from "@/app/routes";
+import { ThemeSwitch } from "@/app/components/ThemeSwitch";
 
 export const NavigationHeader = () => {
   const pathname = usePathname();
@@ -27,7 +28,7 @@ export const NavigationHeader = () => {
         </NavbarBrand>
       </NavbarContent>
 
-      <NavbarContent className="hidden sm:flex gap-12">
+      <NavbarContent className="hidden sm:flex gap-12" justify="center">
         {navLinks.map((item) => (
           <NavbarItem key={item.key} isActive={pathname.startsWith(item.path)}>
             <Link color="foreground" href={item.path} className="text-lg">
@@ -37,7 +38,13 @@ export const NavigationHeader = () => {
         ))}
       </NavbarContent>
 
-      <NavbarMenu className="pt-12">
+      <NavbarContent justify="end">
+        <NavbarItem>
+          <ThemeSwitch />
+        </NavbarItem>
+      </NavbarContent>
+
+      <NavbarMenu className="pt-8">
         {navLinks.map((item) => (
           <NavbarMenuItem
             className="pt-4"

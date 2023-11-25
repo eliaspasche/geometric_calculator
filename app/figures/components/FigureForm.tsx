@@ -2,16 +2,16 @@
 
 import { Form, useFormikContext } from "formik";
 import { SelectItem } from "@nextui-org/select";
-import { FormikInput } from "@/app/components/form_components/input";
+import { FormikInput } from "@/app/components/form_components/Input";
 import React from "react";
-import { FormikSelect } from "@/app/components/form_components/select";
-import { FormikSlider } from "@/app/components/form_components/slider";
-import { SolidFigure } from "@/app/types/solid_figure";
-import { Ellipsoid } from "@/app/types/figures/ellipsoid";
-import { RectangularCuboid } from "@/app/types/figures/rectangular_cuboid";
-import { RectangularPyramid } from "@/app/types/figures/rectangular_pyramid";
+import { FormikSelect } from "@/app/components/form_components/Select";
+import { FormikSlider } from "@/app/components/form_components/Slider";
+import { SolidFigure } from "@/app/types/SolidFigure";
+import { Ellipsoid } from "@/app/types/figures/Ellipsoid";
+import { RectangularCuboid } from "@/app/types/figures/RectangluarCuboid";
+import { RectangularPyramid } from "@/app/types/figures/RectangularPyramid";
 import { FiguresFormType } from "@/app/figures/page";
-import { FormPanel } from "@/app/components/figure/form_panel";
+import { FormPanel } from "@/app/components/figure/FormPanel";
 
 export const AVAILABLE_FIGURES: {
   figure: SolidFigure;

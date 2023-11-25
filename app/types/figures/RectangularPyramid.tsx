@@ -1,6 +1,6 @@
-import { SolidFigure } from "@/app/types/solid_figure";
+import { SolidFigure } from "@/app/types/SolidFigure";
 import React from "react";
-import PyramidCanvas from "@/app/figures/components/canvas/pyramid_canvas";
+import PyramidCanvas from "@/app/figures/components/canvas/PyramidCanvas";
 
 export class RectangularPyramid extends SolidFigure {
   get surfaceArea(): number {

@@ -1,11 +1,11 @@
 "use client";
 import { useFormikContext } from "formik";
 import { useMemo } from "react";
-import { ValueTile } from "@/app/components/value_tile";
-import { AVAILABLE_FIGURES } from "@/app/figures/components/figure_form";
-import { SolidFigure } from "@/app/types/solid_figure";
+import { ValueTile } from "@/app/components/layout/ValueTile";
+import { AVAILABLE_FIGURES } from "@/app/figures/components/FigureForm";
+import { SolidFigure } from "@/app/types/SolidFigure";
 import { FiguresFormType } from "@/app/figures/page";
-import { PreviewPanel } from "@/app/components/figure/preview_panel";
+import { PreviewPanel } from "@/app/components/figure/PreviewPanel";
 
 export const FigurePreview = () => {
   const formik = useFormikContext<FiguresFormType>();
