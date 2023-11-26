@@ -35,7 +35,7 @@ export function ThemeSwitch() {
       >
         <Image
           alt="Icon Theme Mode"
-          src={isDark === true ? dark : light}
+          src={isDark === true ? light : dark}
           height={24}
         />
       </Button>
