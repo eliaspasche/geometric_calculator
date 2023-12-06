@@ -1,13 +1,6 @@
 import { Shape } from "@/app/types/Shape";
 import React from "react";
-import dynamic from "next/dynamic";
-
-const RectangleCanvas = dynamic(
-  () => import("@/app/shapes/components/canvas/RectangleCanvas"),
-  {
-    ssr: false,
-  },
-);
+import RectangleCanvas from "@/app/shapes/components/canvas/RectangleCanvas";
 
 export class Rectangle extends Shape {
   get area(): number {

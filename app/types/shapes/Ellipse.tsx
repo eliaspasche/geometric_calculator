@@ -1,13 +1,6 @@
 import { Shape } from "@/app/types/Shape";
 import React from "react";
-import dynamic from "next/dynamic";
-
-const EllipseCanvas = dynamic(
-  () => import("@/app/shapes/components/canvas/EllipseCanvas"),
-  {
-    ssr: false,
-  },
-);
+import EllipseCanvas from "@/app/shapes/components/canvas/EllipseCanvas";
 
 export class Ellipse extends Shape {
   get area(): number {

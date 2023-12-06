@@ -1,13 +1,7 @@
 import { Shape } from "@/app/types/Shape";
 import React from "react";
-import dynamic from "next/dynamic";
+import TriangleCanvas from "@/app/shapes/components/canvas/TriangleCanvas";
 
-const TriangleCanvas = dynamic(
-  () => import("@/app/shapes/components/canvas/TriangleCanvas"),
-  {
-    ssr: false,
-  },
-);
 export class RightTriangle extends Shape {
   get area(): number {
     return 0.5 * this.a * this.b;

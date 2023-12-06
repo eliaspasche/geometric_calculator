@@ -22,7 +22,7 @@ export const FormikSlider = (props: PropsWithChildren<SliderInputProps>) => {
       label={props.label}
       minValue={props.minValue}
       maxValue={props.maxValue}
-      step={props.step}
+      step={props.step || 0.1}
       size={"sm"}
     />
   );
