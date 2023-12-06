@@ -18,7 +18,7 @@ export const AVAILABLE_FIGURES: {
   key: string;
   label: string;
 }[] = [
-  { figure: Ellipsoid.prototype, key: "ellipsoid", label: "Epllipsoid" },
+  { figure: Ellipsoid.prototype, key: "ellipsoid", label: "Ellipsoid" },
   {
     figure: RectangularCuboid.prototype,
     key: "cuboid",
